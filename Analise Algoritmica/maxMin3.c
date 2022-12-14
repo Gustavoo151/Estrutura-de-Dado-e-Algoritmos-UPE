@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-void MaxMin(){
-    
+void MaxMin3(){
+
 }
 
 int main(){

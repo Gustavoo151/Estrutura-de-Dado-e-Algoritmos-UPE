@@ -17,11 +17,11 @@ int main(){
 
     int arranjo[9] = {1,2,3,0,5,6,7,8,9};
 
-    int *max = 0, *min = 0;
+    int *max = 0, *min = 0, tamArranjo;
 
     printf("Max: %d Min: %d\n", max, min);
 
-    MaxMin1(arranjo, 9, &max, &min);
+    MaxMin1(arranjo, tamArranjo, &max, &min);
 
     printf("Max: %d Min: %d", max, min);
 
