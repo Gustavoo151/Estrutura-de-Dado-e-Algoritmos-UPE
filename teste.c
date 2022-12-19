@@ -1,16 +1,21 @@
 #include <stdio.h>
 
-void alo (int *a){
-        *a = 7;
-    }
 
 int main(){
-    int *n = 11;
+    int n = 3; // Tamanho do vetor
 
-    
-    alo(&n);
+    int vet[3] = {1,2,3};
 
-    printf("%i ", n);
+    for(int i =0; i <3; i++)
+        printf("%d ", vet[i]);
+
+    printf("\n");
+
+    vet[4] = 0;
+
+
+    for(int i = 0; i < 8; i++)
+        printf("%d ", vet[i]);
 
     return 0;
 }
