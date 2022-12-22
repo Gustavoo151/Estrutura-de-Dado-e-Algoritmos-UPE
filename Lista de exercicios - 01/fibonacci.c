@@ -1,30 +1,31 @@
 #include <stdio.h>
 
-int fibonacci(int num){
-    int soma = 2, aux = 0;
+int fibinacci(int n){
+    if ((n == 1) || (n == 2))
+        return 1;
+    
+    else{
+        int a = 1, b = 1, c = 0, soma = 2;
 
-
-    if(num == 1)
-        return 0;
-
-    else if (num == 2)
-        return 1;    
-
-    else
-        for (int i = 2; i < num; i++){
-            aux = soma;
-           // printf("Soma antes: %d\n", soma);
-            soma =  aux + soma;
-           // printf("Soma depois: %d\n\n", soma);
-            
+        for (int i = 2;  i < n; i++){
+            c = a + b;
+            a = b;
+            b = c;
+            soma += c;
         }
-
-    return soma;
+        return soma;
+    }
 }
 
-int main(){
 
-    printf("Resultado: %d \n ", fibonacci(5));
+int main() {
 
-    return 0;
+    int n;
+
+    printf("Digite quantos termos da sequencia de Fibonacci voce quer:\n");
+    scanf("%d", &n);
+
+    
+    printf("A soma da sequencia fibonacci de %d e: %d",n, fibinacci(n));
+  return 0;
 }
