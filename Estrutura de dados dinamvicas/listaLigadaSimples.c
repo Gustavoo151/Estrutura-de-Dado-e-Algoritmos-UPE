@@ -1,6 +1,10 @@
 #include <stdio.h>  // Biblioteca de que serve para fezer os inputs e output
 #include <stdlib.h>  // Biblioteca usada para fazer a alocação dinamica
 
+/*
+    FALTA FAZER AS FUNÇÕES DE: REMOVER, ENCONTRAR E ADICIONAR EM QUALQUER LUGAR
+*/
+
 typedef struct No{  // Criando estrutura para fazer a ligação dos nós
     int num;
     struct No *proximo;  // No que liga no proximo no
