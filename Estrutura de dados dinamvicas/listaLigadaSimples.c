@@ -34,6 +34,29 @@ void imprimir(no *lista){  // Recebe o ponteiro para o primeiro item da lista
 }
 
 
+void remover(no *lista, int num, no *noAnterior){  // Recebe o ponteiro para o inico da lista, um inteiro que vai ser removido e um ponteiro para o no anterior 
+
+    while(lista){
+        if ((num == lista->num) && (noAnterior == NULL)){
+            no *proximo = lista->proximo;
+            free(lista);
+            lista = proximo;
+            free(proximo);
+        }
+        else if (num != lista->num){  // Se num for difirente do número do no faça.
+            noAnterior = lista;     // Fazendo no atual como no anterio caso a premissa seja verdadeira
+        }
+        else if (num == lista->num){
+            noAnterior->proximo = lista->proximo;
+            free(lista);
+            lista = noAnterior;
+            free(noAnterior);
+        }
+        lista = lista->proximo;  // Fazendo a lista ir sempre para o próximo no para não ficar em um loop infinito
+    }
+}
+
+
 int main(){
     int num, opcao = 1;
     no  *lista = NULL;  // No nulo que vai ser o último No da lista ligada 
