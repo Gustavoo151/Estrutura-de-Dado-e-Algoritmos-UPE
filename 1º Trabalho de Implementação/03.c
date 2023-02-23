@@ -1,19 +1,20 @@
 #include <stdio.h>
 
-
-typedef struct no {
-    int dado;
-    struct no *proximo;
-}tPilhaSimples;
-
-
-
-
+void cont(int *num){
+    *num += 1;
+}
 
 
 int main(int argsc, char *argsv[]){
 
-    printf("Alo");
+    int *numero = 10;
+
+    
+    printf("%d\n", numero);
+    
+    cont(&numero);
+    
+    printf("%d\n", numero);
 
     return 0;
 }

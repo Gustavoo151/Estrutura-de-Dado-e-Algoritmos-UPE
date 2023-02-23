@@ -44,13 +44,16 @@ tPilhaSimples* Empilha(tPilhaSimples *topo, int novo){
 tPilhaSimples* Desempilha(tPilhaSimples *topo, int *quantRemovidos){
     tPilhaSimples *novoTopo;
 
-    if(topo == NULL)
+    if(topo == NULL){
+        printf("Pilha Vazia!\n");
         return topo;
+    }
     
     printf("\nValor Desempilhado: %d\n", topo->dado);
 
     novoTopo = topo->proximo;
-    printf("\nQuantidade de intens removidos: %d\n", *(quantRemovidos += 1));
+    //*(quantRemovidos++);
+    printf("\nQuantidade de intens removidos: %d\n", *quantRemovidos+= 1);
     
     free(topo);
     return novoTopo;
@@ -66,8 +69,8 @@ void mostraPilha(tPilhaSimples *topo){
         topo = topo->proximo;
     }
     printf("\n----------------- FIM PILHA -----------------\n");
-
 }
+
 
 int main(){
     int opc, valor, *quantRemovidos = 0;
@@ -87,11 +90,12 @@ int main(){
             break;
         
         case 2:
-            if(PilhaVazia(topo) == 1)
+            if(PilhaVazia(topo) == 1){
                 printf("Digite um valor: \n");
                 scanf("%d", &valor);
                 topo = CriaPilha(valor);
-                break;
+            }
+            break;
 
         case 3:
             printf("Digite um valor: \n");
@@ -100,19 +104,21 @@ int main(){
             break;
 
         case 4:
-            Desempilha(topo, &quantRemovidos);
+            topo = Desempilha(topo, &quantRemovidos);
             break;  
 
         case 5:
             mostraPilha(topo);
             break;
 
+        case 0:
+            return 0;
+
         default:
             printf("Opcao invalida!");
             break;
         }
     } while(opc != 0);
-
 
     return 0;
 }
